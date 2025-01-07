@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    }
+    
 
-   options{
+   options {
        
        timeout(time: 10, unit: 'seconds')
    }
@@ -29,16 +29,23 @@ pipeline {
             }
         }
 
-    post {
-        always{
+    }
+
+}         
+
+        post {
+
+           always{
             echo "This sections runs always"
             
+           }
+           success{
+             echo "This section run when pipeline success"
+           }
+           failure{
+              echo "This section run when pipeline failure"
+          }
         }
-        success{
-            echo "This section run when pipeline success"
-        }
-        failure{
-            echo "This section run when pipeline failure"
-        }
-    }
-}
+     
+    
+
